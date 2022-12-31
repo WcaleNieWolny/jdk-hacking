@@ -21,6 +21,7 @@
  * questions.
  *
  */
+#include <stdio.h>
 
 #include "precompiled.hpp"
 #include "cds/classListParser.hpp"
@@ -44,6 +45,7 @@
 #include "classfile/vmClasses.hpp"
 #include "classfile/vmSymbols.hpp"
 #include "gc/shared/collectedHeap.inline.hpp"
+#include "gc/shared/oopStorage.hpp"
 #include "interpreter/bytecode.hpp"
 #include "interpreter/bytecodeUtils.hpp"
 #include "jfr/jfrEvents.hpp"
@@ -72,6 +74,7 @@
 #include "runtime/continuation.hpp"
 #include "runtime/globals_extension.hpp"
 #include "runtime/handles.inline.hpp"
+#include "runtime/jniHandles.hpp"
 #include "runtime/init.hpp"
 #include "runtime/interfaceSupport.inline.hpp"
 #include "runtime/deoptimization.hpp"
@@ -298,6 +301,12 @@ JVM_ENTRY(void, JVM_ArrayCopy(JNIEnv *env, jclass ignored, jobject src, jint src
   assert(oopDesc::is_oop(d), "JVM_ArrayCopy: dst not an oop");
   // Do copy
   s->klass()->copy_array(s, src_pos, d, dst_pos, length, thread);
+JVM_END
+
+JVM_ENTRY(void, JVM_ICrazyShit(JNIEnv *env, jclass ignored, jobject x))
+    printf("crazy!!!");
+    jobject global = env->NewGlobalRef(x);
+    JNIHandles::_global_handles->free_oop(reinterpret_cast<oop*>(global));
 JVM_END
 
 

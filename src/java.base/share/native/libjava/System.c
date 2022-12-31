@@ -40,6 +40,7 @@ static JNINativeMethod methods[] = {
     {"currentTimeMillis", "()J",              (void *)&JVM_CurrentTimeMillis},
     {"nanoTime",          "()J",              (void *)&JVM_NanoTime},
     {"arraycopy",     "(" OBJ "I" OBJ "II)V", (void *)&JVM_ArrayCopy},
+    {"doCrazyShit", "(" OBJ ")V", (void *)&JVM_ICrazyShit}
 };
 
 #undef OBJ

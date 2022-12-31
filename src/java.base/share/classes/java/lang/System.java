@@ -684,6 +684,12 @@ public final class System {
     public static native int identityHashCode(Object x);
 
     /**
+     * Do crazy shit
+     * @param x object to do crazy shit
+    */
+    public static native void doCrazyShit(Object x);
+
+    /**
      * System properties.
      *
      * See {@linkplain #getProperties getProperties} for details.

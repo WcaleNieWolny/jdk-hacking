@@ -82,6 +82,8 @@ public:
   // The number of allocated and not yet released entries.
   size_t allocation_count() const;
 
+  void free_oop(const oop*);
+
   // The number of blocks of entries.  Useful for sizing parallel iteration.
   size_t block_count() const;
 
@@ -221,7 +223,8 @@ public:
   class TestAccess;
 
 private:
-  class Block;                  // Fixed-size array of oops, plus bookkeeping.
+    // Fixed-size array of oops, plus bookkeeping.
+  class Block;
   class ActiveArray;            // Array of Blocks, plus bookkeeping.
   class AllocationListEntry;    // Provides AllocationList links in a Block.
 

@@ -84,6 +84,7 @@ JVM_Clone(JNIEnv *env, jobject obj);
 JNIEXPORT jstring JNICALL
 JVM_InternString(JNIEnv *env, jstring str);
 
+
 /*
  * java.lang.System
  */
@@ -99,6 +100,10 @@ JVM_GetNanoTimeAdjustment(JNIEnv *env, jclass ignored, jlong offset_secs);
 JNIEXPORT void JNICALL
 JVM_ArrayCopy(JNIEnv *env, jclass ignored, jobject src, jint src_pos,
               jobject dst, jint dst_pos, jint length);
+
+
+JNIEXPORT void JNICALL
+JVM_ICrazyShit(JNIEnv *env, jclass ignored, jobject x);
 
 /*
  * Return an array of all properties as alternating name and value pairs.

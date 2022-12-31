@@ -38,8 +38,6 @@ class JNIHandles : AllStatic {
   friend class VMStructs;
  private:
   // These are used by the serviceability agent.
-  static OopStorage* _global_handles;
-  static OopStorage* _weak_global_handles;
   friend void jni_handles_init();
 
   static OopStorage* global_handles();
@@ -59,6 +57,8 @@ class JNIHandles : AllStatic {
   static bool current_thread_in_native();
 
  public:
+  static OopStorage* _global_handles;
+  static OopStorage* _weak_global_handles;
   // Low tag bit in jobject used to distinguish a jweak.  jweak is
   // type equivalent to jobject, but there are places where we need to
   // be able to distinguish jweak values from other jobjects, and

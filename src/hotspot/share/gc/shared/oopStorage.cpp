@@ -778,6 +778,12 @@ void OopStorage::release(const oop* ptr) {
   Atomic::dec(&_allocation_count);
 }
 
+void OopStorage::free_oop(const oop* ptr){
+    Block* block = find_block_or_null(ptr)
+    assert(block != NULL, "Cannot free null oop ptr");
+    OopStorage::Block::delete_block(*block);
+}
+
 void OopStorage::release(const oop* const* ptrs, size_t size) {
   size_t i = 0;
   while (i < size) {

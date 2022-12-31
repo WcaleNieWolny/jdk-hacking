@@ -24,6 +24,7 @@
 JVM_ActiveProcessorCount
 JVM_AreNestMates
 JVM_ArrayCopy
+JVM_ICrazyShit
 JVM_AssertionStatusDirectives
 JVM_BeforeHalt
 JVM_CallStackWalk
